@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+    </head>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+});
+</script>
+<body>
+    <app-navbar></app-navbar>
+
+    <h2>Console</h2>
+
+    <p>
+        <h2>console.log()</h2>
+        <p class="instructions">Instructions:
+            Open the browser development tools and navigate to the console tab. Click the buttons below and view the results in the 
+            console.
+        </p>
+        <p>
+            This example logs a simple message to the console, using the console.log() method.
+            It's the most basic way to output information to the console.
+
+            This example runs the following code:
+            <pre><code class="language-javascript">
+                counter = 0;
+                function logToConsole(){
+                    console.log(`The count is ${counter++}`);
+                }
+                </code></pre>
+    
+            <button onclick="logToConsole()">console.log()</button>
+        </p>
+        <h2>console.table()</h2>
+        <p>
+            The console.table() method logs an object or array as a table in the console output.
+            Each property of the object is displayed as a value in the table. 
+
+            This example runs the following code:
+            <pre><code class="language-javascript">
+                pet = {ageInYears:2.1, name:"monster", type:"hermit crab"};
+                console.table(pet);
+                </code></pre>
+            <button onclick="logTableExample()">console.table()</button>
+      
+        </p>
+
+        <h2>console.assert()</h2>
+        <p>
+            The console.assert() method logs a message to the console if an assertion is false. 
+            If the assertion is true, nothing is logged to the console.
+
+            This example runs the following code:
+            <pre><code class="language-javascript">
+                function assertExample(){
+                    console.assert(1 === 2, "1 does not equal 2");
+                }
+                </code></pre>
+            <button onclick="console.assert(1 === 2, '1 does not equal 2')">console.assert()</button>
+
+        <h2>console.dir()</h2>
+        The console.dir() method logs an object as a directory in the console output. Nested objects are displayed in a 
+        navigatable tree structure.
+
+        This example runs the following code:
+        <pre><code class="language-javascript">
+            crab = {ageInYears:2.1, name:"monster", type:"hermit crab", origin: {country:"United States", state:"New Jersey", city:"Ocean City"}};
+            console.dir(crab);
+            </code></pre>
+
+        <button onclick="logDirExample()">consol.dir()</button>
+
+        <h2>info, trace, warn, debug, error</h2>
+        The console object has functions for logging different messages for different needs. 
+
+        <button onclick="console.info('This is an info message')">console.info()</button>
+        <button onclick="console.trace('This is a trace message')">console.trace()</button>
+        <button onclick="console.warn('This is a warning message')">console.warn()</button>
+        <button onclick="console.debug('This is a debug message')">console.debug()</button>
+        <button onclick="console.error('This is an error message')">console.error()</button>
+        <button onclick="logAll()">Log All</button>
+         
+
+        <h2>time and timeEnd</h2>
+        The console.time() and console.timeEnd() functions can be used to measure the time 
+        it takes for a block of code to execute.
+
+        This example runs the following code:
+        <pre>
+            <code class="language-javascript">
+                console.time('timer');
+                setTimeout(() => {
+                    console.timeEnd('timer');
+                }, 1000);
+
+        </pre>
+
+        The output in the console shows the name of the timer and the 
+        time (in milliseconds) it took to execute the code block.
+
+    </p>
+    <button onclick="logTime()">console.time()</button>
+
+    <script>
+        counter = 0;
+        function logToConsole(){
+            console.log(`The count is ${counter++}`);
+        }
+
+        function logTime(){
+            console.time('timer');
+            setTimeout(() => {
+                console.timeEnd('timer');
+            }, 1000);
+        }
+
+        function logAll(){
+            console.info('This is an info message');
+            console.trace('This is a trace message');
+            console.warn('This is a warning message');
+            console.debug('This is a debug message');
+            console.error('This is an error message');
+        }
+
+        function logTableExample(){
+            crabs = [
+                {ageInYears:2.1, name:"monster", type:"hermit crab"}, 
+                {ageInYears:1.5, name:"crabby", type:"hermit crab"},
+                {ageInYears:1.2, name:"crabzilla", type:"hermit crab"}
+            ];
+            console.table(crabs);
+        }
+
+        function logDirExample(){
+            crab = {ageInYears:2.1, name:"monster", type:"hermit crab", origin: {country:"United States", state:"New Jersey", city:"Ocean City"}};
+            console.dir(crab);
+
+        }
+
+        function incrementCount() {
+            count++;
+            document.getElementById("countLabel").textContent = count;
+        }
+    </script>
+
+</body>
+
+</html>

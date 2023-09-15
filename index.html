@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+});
+</script>
+<body>
+    <app-navbar></app-navbar>
+
+    <a href="./console.html">Console</a>
+    <h2>Console</h2>
+
+    <pre><code class="language-javascript">
+        function helloWorld() {
+          console.log('Hello, world!');
+        }
+        </code></pre>
+
+    <p>
+        <h2>console.log()</h2>
+        <p class="instructions">Instructions:
+            Open the browser development tools and navigate to the console tab. Click the buttons below and view the results in the 
+            console.
+        </p>
+        <p>
+            This example logs a simple message to the console, using the console.log() method.
+            It's the most basic way to output information to the console.
+
+            This example runs the following code:
+            <pre><code class="language-javascript">
+                counter = 0;
+                function logToConsole(){
+                    console.log(`The count is ${counter++}`);
+                }
+                </code></pre>
+    
+            <button onclick="logToConsole()">console.log()</button>
+        </p>
+
+        <p>
+            The console.table() method logs an object or array as a table in the console output.
+            Each property of the object is displayed as a value in the table. 
+            <button onclick="logTableExample()">console.table()</button>
+      
+        </p>
+        The console.dir() method logs an object as a directory in the console output.
+        <button onclick="logDirExample()">consol.dir()</button>
+
+    </p>
+
+    <script>
+        counter = 0;
+        function logToConsole(){
+            console.log(`The count is ${counter++}`);
+        }
+
+        function logTableExample(){
+            thing = {ageInYears:2.1, name:"monster", type:"hermit crab", origin: {country:"United States", state:"New Jersey", city:"Ocean City"}};
+            console.table(thing);
+        }
+
+        function logDirExample(){
+            thing = {ageInYears:2.1, name:"monster", type:"hermit crab", origin: {country:"United States", state:"New Jersey", city:"Ocean City"}};
+            console.dir(thing);
+        }
+
+        function incrementCount() {
+            count++;
+            document.getElementById("countLabel").textContent = count;
+        }
+    </script>
+
+    <h2>Cookies</h2>
+    <p>
+        <input id="cookieName" type="text" placeholder="Cookie Name">
+        <input id="cookieValue" type="text" placeholder="Example Value">
+        <button onclick="setCookie()">Set Cookie</button>
+        <button onclick="getCookie()">Get Cookie</button>
+        <button onclick="deleteCookie()">Delete Cookie</button>
+    </p>
+    <script>
+        function setCookie(){
+            let cookieName = document.getElementById("cookieName").value;
+            let cookieValue = document.getElementById("cookieValue").value;
+            expirationDate = new Date((new Date()).getTime() + 60 * 60 * 1000);
+            console.table({expirationDate, cookieName, cookieValue});
+            document.cookie = `${cookieName}=${cookieValue}; expires=${expirationDate.toUTCString()};`;// path=/}`;
+        }
+
+        function getCookieByName(name) {
+            let cookieArray = document.cookie.split(';'); // Split document.cookie string into individual cookie strings
+
+            for(let i = 0; i < cookieArray.length; i++) {
+                let cookiePair = cookieArray[i].split('='); // Split each individual cookie string into name and value
+                
+                // Trim whitespace and check if the name matches the desired name
+                if (cookiePair[0].trim() === name) {
+                    return decodeURIComponent(cookiePair[1]); // Return the decoded value of the cookie
+                }
+        }
+
+            return null; // Return null if the cookie by that name is not found
+        }
+
+        function getCookie(){
+            let cookieName = document.getElementById("cookieName").value;
+            let cookieValue = getCookieByName(cookieName);
+            // let cookieValue = document.cookie.replace(new RegExp("(?:(?:^|.*;\s*)"+cookieName+"\s*\=\s*([^;]*).*$)|^.*$"), "$1");
+            alert(cookieValue);
+        }
+
+        function deleteCookie(){
+            let cookieName = document.getElementById("cookieName").value;
+            document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";`;
+            // document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+    </script>
+</body>
+
+</html>
