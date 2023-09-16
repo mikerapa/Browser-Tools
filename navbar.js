@@ -32,7 +32,7 @@ class CustomNavbar extends HTMLElement {
             <div id="navbar">
                 <a href="./index.html">Home</a>
                 <a href="./console.html">Console</a>
-                <a href="./storage">Storage</a>
+                <a href="./storage.html">Storage</a>
             </div>
         `;
     }

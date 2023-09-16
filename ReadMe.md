@@ -89,3 +89,19 @@ setTimeout(() => {
 The output in the console shows the name of the timer and the 
 time (in milliseconds) it took to execute the code block.
 ![timer output](images/timerOutput.png)
+
+
+## Storage
+Data is stored in the browser in several different ways. The most effective way to 
+examine the state of that storage is to utilize the browsers dev tools. 
+### Cookies
+To view the cookies associated with a particular website, navigate to the site, open the dev tools, and select cookies in the Storage panel. You'll need to refresh the panel to see changes to the 
+cookies. You can see the name, value and expiration date of each cookie. You can also manipulate cookies from this panel.
+
+The screenshot below shows this tool in Chromium-based browsers.
+![cookies](images/cookiesPanel.png)
+
+### Local Storage
+To view the local storage associated with a particular website, navigate to the site, open the dev tools, and select local storage in the Storage panel.
+
+![local storage](images/localStoragePanel.png)
