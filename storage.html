@@ -130,6 +130,46 @@
                 localStorage.removeItem(keyName);
             }
         </script>
+    </p>
+    <p>
+        <h2>Session Storage</h2>
+        <p class="instructions">
+            Instructions: Open the browser development tools and navigate to the
+            Application tab. Use the form below and view the changes in the
+            Session Storage section.
+        </p>
+        <p>
+            <input id="sessionStorageKey" type="text" placeholder="Key">
+            <input id="sessionStorageValue" type="text" placeholder="Value">
+            <button onclick="setSessionStorage()">Set Session Storage</button>
+            <button onclick="getSessionStorage()">Get Session Storage</button>
+            <button onclick="deleteSessionStorage()">Delete Session Storage</button>
+        </p>
+        <p>This example adds, deletes and retrieves session storage values using the 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage">window.sessionStorage api</a>. 
+            Session storage is similar to local storage, except that it is scoped to the current 
+            browser tab, and the data is cleared when the tab is closed.
+        </p>    
+    </p>
+    <script>
+        // funcitons for getting, setting and deleting session storage values
+        function setSessionStorage(){
+            let keyName = document.getElementById("sessionStorageKey").value;
+            let value = document.getElementById("sessionStorageValue").value;           
+            sessionStorage.setItem(keyName, value);
+        }
+
+        function getSessionStorage(){
+            let keyName = document.getElementById("sessionStorageKey").value;
+            let value = sessionStorage.getItem(keyName);
+            alert(value);
+        }
+
+        function deleteSessionStorage(){
+            let keyName = document.getElementById("sessionStorageKey").value;
+            sessionStorage.removeItem(keyName);
+        }
+    </script>
 
 
 </body>

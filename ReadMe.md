@@ -92,8 +92,10 @@ time (in milliseconds) it took to execute the code block.
 
 
 ## Storage
-Data is stored in the browser in several different ways. The most effective way to 
-examine the state of that storage is to utilize the browsers dev tools. 
+There are several ways in which data is stored in the browser. The most effective way to 
+examine the state of that storage is to utilize the browsers dev tools. In this section
+we'll look at a few of the most common types of storage and how to interact with the data
+in the browser dev tools.
 ### Cookies
 To view the cookies associated with a particular website, navigate to the site, open the dev tools, and select cookies in the Storage panel. You'll need to refresh the panel to see changes to the 
 cookies. You can see the name, value and expiration date of each cookie. You can also manipulate cookies from this panel.
@@ -102,6 +104,13 @@ The screenshot below shows this tool in Chromium-based browsers.
 ![cookies](images/cookiesPanel.png)
 
 ### Local Storage
-To view the local storage associated with a particular website, navigate to the site, open the dev tools, and select local storage in the Storage panel.
+To view the local storage associated with a particular website, navigate to the site, open the dev tools, and select local storage in the Storage panel. Data placed in local storage 
+will persist until it is cleared by the user or the application.
 
 ![local storage](images/localStoragePanel.png)
+
+### Session Storage
+To view the session storage associated with a particular website, navigate to the site, open the dev tools, and select session storage in the Storage panel. You will notice that 
+session storage is cleared when you close the browser tab.
+
+![session storage](images/sessionStoragePanel.png)
