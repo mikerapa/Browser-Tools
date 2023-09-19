@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples - Memory</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+    </head>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+});
+</script>
+<body>
+    <app-navbar></app-navbar>
+
+    <h1>Memory</h1>
+    <div class="instructions">
+        Instructions: Open the browser development tools and navigate to the
+        Memory tab.
+        <ol>
+            <li>Select the Allocation sampling option</li>
+            <li>Click the 'Start' button to beging profiling</li>
+            <li>Click the 'Allocate a bunch of memory' button below.</li>
+            <li>Finally, click the 'Stop' button to stop the profiling.</li>
+        </ol>
+        
+        You should see a tree of memory allocations in the Memory tab. You should see that memory
+        has been allocated under the 'allocateMemory' function. You can click on the function name
+        and see the the event associated with the memory allocation. You can also click on the file name to see
+        the code that allocated the memory.
+            
+    </div>
+    <input type="button" value="Allocate a bunch of memory" onclick="allocateMemory()">
+
+    <div class="instructions">
+        Instructions: Open the browser development tools and navigate to the
+        Memory tab.
+        <ol>
+            <li>Select the Heap Snapshot option</li>
+            <li>Click the 'Take Snapshot' button to capture the first snapshot</li>
+            <li>Click the 'Allocate a bunch of memory' button below.</li>
+            <li>Click the 'Take Heap Snapshot' button to collect a second snapshot.</li>
+            <li>Select the 'Comparison' option in the dropdown.</li>
+        </ol>
+        
+        You should see a tree of memory allocations which are different between the 
+        two snapshots.
+       
+            
+    </div>
+    <input type="button" value="Allocate a bunch of memory" onclick="allocateMemory()">
+    <input type="button" value="Deallocate memory" onclick="deallocateMemory()">
+</body>
+<script>
+    let largeArrayOfZeroes;
+    function allocateMemory(){
+        largeArrayOfZeroes = new Array(1024 * 1024);
+        // initialize the array
+        for(let i = 0; i < largeArrayOfZeroes.length; i++){
+            largeArrayOfZeroes[i] = 0;
+        }
+        console.log("Allocated memory");
+    }
+
+    function deallocateMemory(){
+        largeArrayOfZeroes = null;
+        console.log("Deallocated memory");
+    }
+</script>
+
+</html>

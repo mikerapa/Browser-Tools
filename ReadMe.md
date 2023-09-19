@@ -114,3 +114,16 @@ To view the session storage associated with a particular website, navigate to th
 session storage is cleared when you close the browser tab.
 
 ![session storage](images/sessionStoragePanel.png)
+
+
+## Memory
+The memory panel in the browser dev tools allows you to see the memory usage of your application. 
+
+To get started, I recommend selecting the 'Heap Snapshot' option from the 
+main memory screen and taking a snapshot. You can then use the 'Summary' tab to see the memory usage of your application. Once you're ready, you can 
+collect a second snapshot and use the 'Comparison' option to compare snapshots.
+
+![memory panel](images/memoryHeap.png)
+
+See the [Chrome Dev Tools documentation](https://developer.chrome.com/docs/devtools/memory-problems/heap-snapshots/) for more information on the memory panel. 
+
