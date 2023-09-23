@@ -127,3 +127,19 @@ collect a second snapshot and use the 'Comparison' option to compare snapshots.
 
 See the [Chrome Dev Tools documentation](https://developer.chrome.com/docs/devtools/memory-problems/heap-snapshots/) for more information on the memory panel. 
 
+
+## Performance 
+Open the Performance panel in your browser dev tools. The browser doesn't continuously record performance data, so you'll need to click the record button to start recording, and click stop to end the recording.
+
+If you're using the sample application, navigate to the Performance tab and click the Animate button. 
+When the recording has stopped, will see a lot of information has been captured, including the following:
+
+1. A graph of CPU activity
+2. A graph of network activity 
+3. Progressive screen shots showing the visual state
+4. A graph of memory usage over time. 
+5. A dial chart showing the percentage time spent in the scripting, rendering, painting and other categories of utilization. 
+6. A call tree, also showing percentages of utilization. 
+7. Event list.
+
+This tool can be used to diagnose run-time performance issues as well as slowness associates with the first time load of a web application. For more information about how to use the tool see the [Chrome Dev Tools documentation](https://developer.chrome.com/docs/devtools/performance/). 

@@ -28,11 +28,22 @@
 
     <h1>Performance</h1>
     <div class="instructions">
-        Instructions:
+        Instructions: To use this example, open the Chrome Dev tools
+        and navigate to the Performance tab. Click on the Animate 
+        button in this example. While the exmaple is running start the recording, 
+        wait a few seconds and then stop the recording. When the recording is 
+        complete, you'll see a full panel of performance data. <a href="https://developer.chrome.com/docs/devtools/performance/">
+            See the documentation</a> for a details regarding the data that is collected
+            and how to use the Performance panel.
+        
+
     </div>
     <div>
-        <button id="animateButton" onclick="animate2()">Animate</button>
-        <button id="stopButton" onclick="stopAnimation()">Stop</button>
+        <p>
+            <button id="animateButton" onclick="animate2()">Animate</button>
+            <button id="stopButton" onclick="stopAnimation()">Stop</button>
+        </p>
+        
         <canvas id="drawCanvas" width="400" height="300" style="border:1px solid #000000;">
             
     </div>
