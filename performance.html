@@ -32,13 +32,21 @@
     </div>
     <div>
         <button id="animateButton" onclick="animate2()">Animate</button>
+        <button id="stopButton" onclick="stopAnimation()">Stop</button>
         <canvas id="drawCanvas" width="400" height="300" style="border:1px solid #000000;">
             
     </div>
     <script>
 
+        let active = true;
+        let initiated = false;
+
         function animate2(){
             console.log("animate");
+            if (initiated){
+                active = true;
+                return;
+            }
         // Get the canvas element from the DOM and animate a soccer ball
         // bouncing around the canvas.
             var canvas = document.getElementById("drawCanvas");
@@ -58,6 +66,9 @@
             }
 
             function draw() {
+                if(!active){
+                    return;
+                }
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 drawBall();
                 x += dx;
@@ -71,6 +82,14 @@
             }
 
             setInterval(draw, 20);
+            initiated = true;
+            active = true;
+
+        }
+
+        function stopAnimation(){
+            console.log("stop");
+            active = false;
         }
 
 
