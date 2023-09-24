@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples - Network</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+    <h1>Network</h1>
+    <div class="instructions">
+        Instructions: Open the browser development tools and navigate to the
+        Network tab. Click on the 'Get User Data' button in the example below, and you
+        shoud see user data appear in the table. The data is retrieved from a public 
+        API. 
+        
+        <p>When you're ready to examine the network data, click on the Stop button.</p>
+        
+        <p>Explore the Headers, Preview, Response, Initiator and Timing tabs for each file.</p>
+    </div>
+    <div>
+        <p>
+            <button id="getUserDataButton" onclick="getUserData()">Get User Data</button>
+            <button id="clearButton" onclick="clearData()">Clear</button>
+            <button id="refreshButton" onclick="getUserData()">Refresh</button>
+        </p>
+        <table id="userTable">
+        </table>
+    </div>
+    <script>
+
+        function clearData() {
+            console.log("clearData");
+            let table = document.getElementById("userTable");
+            table.innerHTML = "";
+        }
+
+        function getUserData() {
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                    let table = document.getElementById("userTable");
+                    table.innerHTML = "";
+                    let header = table.createTHead();
+                    let headerRow = header.insertRow(0);
+                    let nameHeader = headerRow.insertCell(0);
+                    nameHeader.innerHTML = "Name";
+                    let usernameHeader = headerRow.insertCell(1);
+                    usernameHeader.innerHTML = "Username";
+                    let emailHeader = headerRow.insertCell(2);
+                    emailHeader.innerHTML = "Email";
+                    let zipHeader = headerRow.insertCell(3);
+                    zipHeader.innerHTML = "Zip Code";
+                    let body = table.createTBody();
+                    let footer = table.createTFoot();
+                    let footerRow = footer.insertRow(0);
+                    let footerCell = footerRow.insertCell(0);
+                    footerCell.innerHTML = "Total Users: " + json.length;
+                    json.forEach(user => {
+                        let row = body.insertRow(0);
+                        let nameCell = row.insertCell(0);
+                        nameCell.innerHTML = user.name;
+                        let usernameCell = row.insertCell(1);
+                        usernameCell.innerHTML = user.username;
+                        let emailCell = row.insertCell(2);
+                        emailCell.innerHTML = user.email;
+                        let zipCell = row.insertCell(3);
+                        zipCell.innerHTML = user.address.zipcode;
+                    });
+                });
+        }
+    </script>
+</body>
+
+
+
+
+</html>

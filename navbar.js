@@ -34,6 +34,7 @@ class CustomNavbar extends HTMLElement {
                 <a href="./console.html">Console</a>
                 <a href="./storage.html">Storage</a>
                 <a href="./memory.html">Memory</a>
+                <a href="./network.html">Network</a>
                 <a href="./performance.html">Performance</a>
             </div>
         `;

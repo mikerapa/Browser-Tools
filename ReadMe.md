@@ -143,3 +143,13 @@ When the recording has stopped, will see a lot of information has been captured,
 7. Event list.
 
 This tool can be used to diagnose run-time performance issues as well as slowness associates with the first time load of a web application. For more information about how to use the tool see the [Chrome Dev Tools documentation](https://developer.chrome.com/docs/devtools/performance/). 
+
+
+## Network
+The network panel in the browser dev tools allows you to see the network activity of your application.
+Start the recording by clicking the record button. Then, refresh the page, and click on the Get User Data
+Button, and stop the recording. You should see a list of network requests that were made, along with status,
+size, and timing information.
+
+If you're using the sample application, the panel should look something like this:
+![network panel](images/networkPanel.png)
