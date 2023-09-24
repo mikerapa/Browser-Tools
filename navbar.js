@@ -31,11 +31,13 @@ class CustomNavbar extends HTMLElement {
             
             <div id="navbar">
                 <a href="./index.html">Home</a>
+                <a href="./elements.html">Elements</a>
                 <a href="./console.html">Console</a>
                 <a href="./storage.html">Storage</a>
                 <a href="./memory.html">Memory</a>
                 <a href="./network.html">Network</a>
                 <a href="./performance.html">Performance</a>
+                <a href="./source.html">Source</a>
             </div>
         `;
     }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples - Source</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+    <h1>Source and Elements</h1>
+    <div class="instructions">
+      Instructions: Open the browser development tools and navigate to the Elements tab.
+      In the sample app, click on the Start Timer button and look for the element which 
+      is blinking, indicating that it's changing. 
+      <p>Navigate to the Sources tab of the browser dev tools and locate the source.html 
+        file in the list of files. Find the line of code which contains `count++` and 
+        set a breakpoint on that line by clicking on the line number.
+      </p>
+    </div>
+    <div>
+        <button id="startCountingButton" onclick="startCounting()" >Start Counter</button>
+        <button id="stopCountingButton" onclick="stopCounting()" >Stop Counter</button>
+        <button id="clearCountButton" onclick="clearCount()" >Clear</button>
+        <div id="countDiv"></div>
+    </div>
+    <script>
+        let count = 0;
+        let countDiv = document.getElementById("countDiv");
+        let running = false;
+
+        function startCounting(){
+            if (!running){
+                running = true;
+                countSlowly();
+            }
+
+        }
+
+        function stopCounting(){
+            running = false;
+        }
+
+        function updateCount(count){
+            countDiv.innerHTML = count;
+        }   
+
+        function countSlowly(){
+            if (!running){
+                return;
+            }
+            count++;
+            updateCount(count);
+            if (running && count < 1000){
+                setTimeout(countSlowly, 1000);
+            }
+        }
+        function clearCount(){
+            count = 0;
+            updateCount(count);
+        }
+    </script>
+
+</body>
+
+
+
+
+</html>

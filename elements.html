@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples - Elements</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+    <h1>Elements, layout and styles</h1>
+    <div class="instructions">
+      Instructions: Open the browser development tools and navigate to the Elements tab.
+      In the sample app, click on the Start Timer button and look for the element which 
+      is blinking, indicating that it's changing. 
+      <p>You can right-click on the blinking div tag and set a breakpoint. </p>
+
+    </div>
+    <div>
+        <button id="startCountingButton" onclick="startCounting()" >Start Counter</button>
+        <button id="stopCountingButton" onclick="stopCounting()" >Stop Counter</button>
+        <button id="clearCountButton" onclick="clearCount()" >Clear</button>
+        <div id="countDiv"></div>
+    </div>
+    <div class="instructions">
+        <p>Instructions: The boxes below can be used as an example to see and manipulate 
+            styles. 
+        </p>
+        <p>
+            In the Elements tab, select the gray box. In the Styles panel, turn on/off some 
+            styles to see how it changes the size, shape and visibility of the gray and 
+            orange boxes. 
+        </p>
+    </div>
+    <div style="padding: 20px;">
+        <div style="padding: 20px; background-color: orange;width: 100px; height: 100px;">
+            <div style="padding: 20; background-color: darkgray;width: 50px; height: 50px;">
+            
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        let count = 0;
+        let countDiv = document.getElementById("countDiv");
+        let running = false;
+
+        function startCounting(){
+            if (!running){
+                running = true;
+                countSlowly();
+            }
+
+        }
+
+        function stopCounting(){
+            running = false;
+        }
+
+        function updateCount(count){
+            countDiv.innerHTML = count;
+        }   
+
+        function countSlowly(){
+            if (!running){
+                return;
+            }
+            count++;
+            updateCount(count);
+            if (running && count < 1000){
+                setTimeout(countSlowly, 1000);
+            }
+        }
+        function clearCount(){
+            count = 0;
+            updateCount(count);
+        }
+    </script>
+
+</body>
+
+
+
+
+</html>

@@ -153,3 +153,30 @@ size, and timing information.
 
 If you're using the sample application, the panel should look something like this:
 ![network panel](images/networkPanel.png)
+
+## Elements and Styles
+The Elements tab of the browser dev tools allows you to see the HTML and CSS of your application. You can also use this tab to inspect the DOM and CSS rules.
+
+To use the sample application to see the Elements tab working, try the following:
+1. Open the browser dev tools and navigate to the Elements tab.
+2. In the sample app, click on the Elements link on the top bar. Click on the Start Timer button and look for the element which is blinking, indicating that it's changing.
+3. You can also see all elements on the page as they are rendered. 
+
+Explore the Elements tab, include the styles panel. 
+
+The Styles panel will display all of the styles pertain to the selected element. It should look something like the following. 
+![Styles panel](images/stylesPanel.png)
+Each style can be enabled or disabled with a checkbox on the left of each line. 
+
+
+## Sources 
+The Sources tab of the browser dev tools allows you to see the JavaScript of your application. You can also use this tab to set breakpoints, inspect variables, 
+and step through the code. If your application has TypeScript, you can also see the source maps in this tab.
+
+To use the sample application to see the Sources tab in action, do the following:
+1. Open the browser dev tools and navigate to the Sources tab.
+2. In the sample app, click on the Source link on the top bar. Click on the Start Timer button and you should see a counter increasing every second. 
+3. In the browser dev tools Sources tab, click on the source.html file in the list of files. 
+4. Find the line of code which contains `count++` and set a breakpoint on that line by clicking on the line number.
+
+From there you can step through the code and inspect variables. 
