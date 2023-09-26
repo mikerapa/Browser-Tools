@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples - Sensors</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
+        });
+    });
+</script>
+<body>
+    <app-navbar></app-navbar>
+
+    <h1>Sensors</h1>
+    <div class="instructions">
+        Instructions: Open the browser development tools and navigate to the Sensors panel.
+        Change the location or orientation of the device and see how the values change in the 
+        sample app below.
+    </div>
+    <p>The following sample code is used to retrieve the orientation and timezone
+        values from the browser. 
+    </p>
+    <pre><code class="language-javascript">
+let orientationType = window.screen.orientation.type
+let orientationAngle = window.screen.orientation.angle
+let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        </code></pre>
+        <!-- draw a smartphone using only css -->
+        <style>
+            .phone {
+                width: 300px;
+                height: 600px;
+                background-color: #333;
+                border-radius: 30px;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+    
+            .screen {
+                width: 280px;
+                height: 500px;
+                background-color: #fff;
+                border-radius: 20px;
+                position: absolute;
+                top: 50px;
+                left: 10px;
+                overflow: hidden;
+                box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            }
+    
+            .camera {
+                width: 20px;
+                height: 20px;
+                background-color: #000;
+                border-radius: 50%;
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+    
+            .speaker {
+                width: 80px;
+                height: 10px;
+                background-color: #000;
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+    
+            .home-button {
+                width: 50px;
+                height: 50px;
+                background-color: #fff;
+                border-radius: 50%;
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+    
+            .home-button:before {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                background-color: #333;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="phone">
+            <div class="screen">
+                <input type="text" id="location"/>
+                <input type="text" id="txtOrientation"/>
+
+            </div>
+            <div class="camera"></div>
+            <div class="speaker"></div>
+            <div class="home-button"></div>
+        </div>
+
+        <script>
+            function updateTimezone() {
+                let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.getElementById("location").value = timezone;
+            }
+
+            function updateOrientation() {
+                console.log(`window.orientation: ${window.orientation}`);
+                console.log(`window.screen.orientation: ${window.screen.orientation.type}`);
+                let orientationString = `${window.screen.orientation.type} (${window.screen.orientation.angle})`
+                let orientationTextBox = document.getElementById("txtOrientation");
+                orientationTextBox.value = orientationString;               
+            }
+    
+            window.onload = function() {
+                updateTimezone();
+                setInterval(updateTimezone, 1000);
+                setInterval(updateOrientation, 1000);
+            };
+        </script>
+</body>
+
+
+
+
+</html>

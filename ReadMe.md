@@ -165,7 +165,9 @@ To use the sample application to see the Elements tab working, try the following
 Explore the Elements tab, include the styles panel. 
 
 The Styles panel will display all of the styles pertain to the selected element. It should look something like the following. 
+
 ![Styles panel](images/stylesPanel.png)
+
 Each style can be enabled or disabled with a checkbox on the left of each line. 
 
 
@@ -180,3 +182,10 @@ To use the sample application to see the Sources tab in action, do the following
 4. Find the line of code which contains `count++` and set a breakpoint on that line by clicking on the line number.
 
 From there you can step through the code and inspect variables. 
+
+## Sensors
+The Sensors tab of the browser dev tools allows you to simulate different sensors on a device.
+This is useful for testing applications which use sensors, such as GPS, accelerometer, and others.
+
+In the sample application, click on the Sensors link on the top bar. Change the location and 
+orientation of the device and see the values update in the application.
