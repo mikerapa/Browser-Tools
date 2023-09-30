@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools Examples - Animation</title>
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css"
+        />
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/languages/javascript.min.js"></script>
+        </script>
+        <script src="./navbar.js" defer></script>
+    </head>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightElement(block);
+  });
+});
+</script>
+
+    <title>Animation</title>
+    <style>
+        .turtle {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            animation: swim 1s infinite;
+        }
+
+        .turtle .head {
+            width: 50px;
+            height: 50px;
+            background-color: #008080;
+            border-radius: 50%;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .turtle .eye {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .turtle .body {
+            width: 200px;
+            height: 100px;
+            background-color: #008080;
+            position: absolute;
+            top: 75px;
+            left: 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .turtle .leg {
+            width: 20px;
+            height: 60px;
+            background-color: #008080;
+            position: absolute;
+            top: 115px;
+            left: 0;
+            transform-origin: top center;
+            animation: paddle 1s infinite alternate;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .turtle .leg.right {
+            left: 180px;
+            transform-origin: top right;
+            animation-delay: 0.5s;
+        }
+
+        .turtle .tail {
+            width: 20px;
+            height: 20px;
+            background-color: #008080;
+            position: absolute;
+            top: 100px;
+            left: 180px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes swim {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes paddle {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+    <h1>Animation</h1>
+
+    <div class="turtle" style="padding: 20px; margin: 20px;">
+        <div class="head"></div>
+        <div class="eye"></div>
+        <div class="body"></div>
+        <div class="leg"></div>
+        <div class="leg right"></div>
+        <div class="tail"></div>
+    </div>
+</body>
+</html>
+

@@ -39,6 +39,7 @@ class CustomNavbar extends HTMLElement {
                 <a href="./performance.html">Performance</a>
                 <a href="./source.html">Source</a>
                 <a href="./sensors.html">Sensors</a>
+                <a href="./animation.html">Animation</a>
             </div>
         `;
     }
