@@ -24,115 +24,145 @@
 });
 </script>
 
-    <title>Animation</title>
-    <style>
-        .turtle {
-            width: 200px;
-            height: 200px;
-            position: relative;
-            animation: swim 1s infinite;
-        }
-
-        .turtle .head {
-            width: 50px;
-            height: 50px;
-            background-color: #008080;
-            border-radius: 50%;
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .turtle .eye {
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            position: absolute;
-            top: 60px;
-            left: 60px;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-        }
-
-        .turtle .body {
-            width: 200px;
-            height: 100px;
-            background-color: #008080;
-            position: absolute;
-            top: 75px;
-            left: 0;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .turtle .leg {
-            width: 20px;
-            height: 60px;
-            background-color: #008080;
-            position: absolute;
-            top: 115px;
-            left: 0;
-            transform-origin: top center;
-            animation: paddle 1s infinite alternate;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .turtle .leg.right {
-            left: 180px;
-            transform-origin: top right;
-            animation-delay: 0.5s;
-        }
-
-        .turtle .tail {
-            width: 20px;
-            height: 20px;
-            background-color: #008080;
-            position: absolute;
-            top: 100px;
-            left: 180px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        @keyframes swim {
-            0% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(20px);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes paddle {
-            0% {
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(45deg);
-            }
-            100% {
-                transform: rotate(0deg);
-            }
-        }
-    </style>
-</head>
 <body>
     <app-navbar></app-navbar>
 
     <h1>Animation</h1>
 
-    <div class="turtle" style="padding: 20px; margin: 20px;">
-        <div class="head"></div>
-        <div class="eye"></div>
-        <div class="body"></div>
-        <div class="leg"></div>
-        <div class="leg right"></div>
-        <div class="tail"></div>
+
+<style>
+    @keyframes bodyDance {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-5px) rotate(5deg); }
+        50% { transform: translateY(0) rotate(0deg); }
+        75% { transform: translateY(-5px) rotate(-5deg); }
+    }
+
+    @keyframes armDance {
+        0%, 100% { transform: translateY(0); }
+        25% { transform: translateY(-10px); }
+        50% { transform: translateY(0); }
+        75% { transform: translateY(10px); }
+    }
+
+    .robot {
+        display: inline-block;
+        position: relative;
+        width: 160px;
+        height: 280px;
+        animation: bodyDance 1s infinite;
+        margin: 50px;
+    }
+
+    /* Robot head */
+    .robot .head {
+        width: 140px;
+        height: 100px;
+        background-color: #B0BEC5;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+
+    .robot .eye {
+        width: 20px;
+        height: 20px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .eye.left { top: 40px; left: 30px; }
+    .eye.right { top: 40px; right: 30px; }
+
+    /* Robot body */
+    .robot .body {
+        width: 120px;
+        height: 120px;
+        background-color: #B0BEC5;
+        position: absolute;
+        top: 110px;
+        left: 20px;
+    }
+
+    .robot .button {
+        width: 20px;
+        height: 20px;
+        background-color: #EF5350;
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .button.one { top: 40px; left: 30px; }
+    .button.two { top: 40px; right: 30px; }
+    .button.three { bottom: 40px; left: 30px; }
+    .button.four { bottom: 40px; right: 30px; }
+
+    /* Robot arms */
+    .robot .arm {
+        width: 20px;
+        height: 80px;
+        background-color: #B0BEC5;
+        position: absolute;
+        top: 130px;
+        animation: armDance 1s infinite;
+    }
+
+    .arm.left {
+        left: -20px;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .arm.right {
+        right: -20px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    /* Robot legs */
+    .robot .leg {
+        width: 40px;
+        height: 80px;
+        background-color: #B0BEC5;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .leg.left { left: 20px; }
+    .leg.right { right: 20px; }
+
+</style>
+</head>
+<body>
+<div class="robot">
+    <!-- Head -->
+    <div class="head">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
     </div>
+    
+    <!-- Body -->
+    <div class="body">
+        <div class="button one"></div>
+        <div class="button two"></div>
+        <div class="button three"></div>
+        <div class="button four"></div>
+    </div>
+    
+    <!-- Arms -->
+    <div class="arm left"></div>
+    <div class="arm right"></div>
+    
+    <!-- Legs -->
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+</div>
 </body>
+
+
+
+
+
+
 </html>
 
