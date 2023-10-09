@@ -191,8 +191,8 @@ In the sample application, click on the Sensors link on the top bar. Change the 
 orientation of the device and see the values update in the application.
 
 ## Framework-specific tools
-Most modern JavaScript frameworks have their own techniques for handling state and managing components. Those frameworks can make it difficult to view the state and memory of your application in the browser dev tools. Fortunately, most of those SPA frameworks have browser plugins, which enhance the browser dev tools.
+If you're using a modern JavaScript SPA framework, such as Angular or React, you may find it difficult to examine the memory usage, performance or state using the tools built into the browser. That's because those frameworks utilize many functions and variables in the framework to manage the state and life-cycle of the components. Fortunately, most of those SPA frameworks have browser plugins, which enhance the browser dev tools.
 
-For example, there is a browser plugin for React called [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=ext_sidebar&hl=en-US). This plugin adds a few React tabs to the browser dev tools, which allows you to see the state of your React application, including the hierarchy of components, and the state of each component.
+For example, there is a browser plugin for React called [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=ext_sidebar&hl=en-US). This plugin adds a few React tabs to the browser dev tools, which allows you to see the state of your React application, including the hierarchy of components and the state of each component. Without such a plugin, the dev tools do not understand enough about React to properly represent the components.
 
-If you're developing an application with a SPA framework, I recommend searching for a browser plugin for that framework.
+If you're developing an application with a SPA framework, I recommend searching for a browser plugin for that framework. Get familiar with the tools that are available for your framework.
