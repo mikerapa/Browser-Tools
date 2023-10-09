@@ -189,3 +189,10 @@ This is useful for testing applications which use sensors, such as GPS, accelero
 
 In the sample application, click on the Sensors link on the top bar. Change the location and 
 orientation of the device and see the values update in the application.
+
+## Framework-specific tools
+Most modern JavaScript frameworks have their own techniques for handling state and managing components. Those frameworks can make it difficult to view the state and memory of your application in the browser dev tools. Fortunately, most of those SPA frameworks have browser plugins, which enhance the browser dev tools.
+
+For example, there is a browser plugin for React called [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=ext_sidebar&hl=en-US). This plugin adds a few React tabs to the browser dev tools, which allows you to see the state of your React application, including the hierarchy of components, and the state of each component.
+
+If you're developing an application with a SPA framework, I recommend searching for a browser plugin for that framework.
