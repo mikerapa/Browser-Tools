@@ -40,11 +40,12 @@
 
             This example runs the following code:
             <pre><code class="language-javascript">
-                counter = 0;
-                function logToConsole(){
-                    console.log(`The count is ${counter++}`);
-                }
-                </code></pre>
+counter = 0;
+function logToConsole(){
+    console.log(`The count is ${counter++}`);
+}
+                </code>
+            </pre>
     
             <button onclick="logToConsole()">console.log()</button>
         </p>
@@ -55,8 +56,8 @@
 
             This example runs the following code:
             <pre><code class="language-javascript">
-                pet = {ageInYears:2.1, name:"monster", type:"hermit crab"};
-                console.table(pet);
+pet = {ageInYears:2.1, name:"monster", type:"hermit crab"};
+console.table(pet);
                 </code></pre>
             <button onclick="logTableExample()">console.table()</button>
       
@@ -69,9 +70,9 @@
 
             This example runs the following code:
             <pre><code class="language-javascript">
-                function assertExample(){
-                    console.assert(1 === 2, "1 does not equal 2");
-                }
+function assertExample(){
+    console.assert(1 === 2, "1 does not equal 2");
+}
                 </code></pre>
             <button onclick="console.assert(1 === 2, '1 does not equal 2')">console.assert()</button>
 
@@ -81,8 +82,8 @@
 
         This example runs the following code:
         <pre><code class="language-javascript">
-            crab = {ageInYears:2.1, name:"monster", type:"hermit crab", origin: {country:"United States", state:"New Jersey", city:"Ocean City"}};
-            console.dir(crab);
+crab = {ageInYears:2.1, name:"monster", type:"hermit crab", origin: {country:"United States", state:"New Jersey", city:"Ocean City"}};
+console.dir(crab);
             </code></pre>
 
         <button onclick="logDirExample()">consol.dir()</button>
@@ -105,10 +106,10 @@
         This example runs the following code:
         <pre>
             <code class="language-javascript">
-                console.time('timer');
-                setTimeout(() => {
-                    console.timeEnd('timer');
-                }, 1000);
+console.time('timer');
+setTimeout(() => {
+    console.timeEnd('timer');
+}, 1000);
 
         </pre>
 
