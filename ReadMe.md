@@ -200,3 +200,20 @@ If you're using a modern JavaScript SPA framework, such as Angular or React, you
 For example, there is a browser plugin for React called [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=ext_sidebar&hl=en-US). This plugin adds a few React tabs to the browser dev tools, which allows you to see the state of your React application, including the hierarchy of components and the state of each component. Without such a plugin, the dev tools do not understand enough about React to properly represent the components.
 
 If you're developing an application with a SPA framework, I recommend searching for a browser plugin for that framework. Get familiar with the tools that are available for your framework.
+
+## Chrome DevTools MCP
+There is a MCP(Model Context Protoco) for Chrome DevTools. See [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp/?tab=readme-ov-file#chrome-devtools-mcp) for more information about setting it up. I would suggest updating Chrome, Node and your dev tools before trying to set this up. 
+
+The Chrome DevTools MCP is an open-source server implementation that allows an LLM coding assistant, like Github Copilot, to hook into a live Chrome browser instance via the standard Model Context Protocol (MCP) and thereby use Chrome DevTools’ debugging, inspection, automation and performance-analysis capabilities. 
+Instead of an AI model just writing front-end code and guessing whether it works, with Chrome DevTools MCP the agent can open a browser, interact with the web page, inspect console logs, watch network acctivity and determine what is working. 
+
+Try the following prompt. 
+
+```Open http://127.0.0.1:8080/source.html in Chrome and see if there are perfromance improvements you can suggest.```
+
+# Additional Resources 
+[Chrome DevTools Blog](https://developer.chrome.com/blog) The Chrome Dev team updates this page frequently with changes that are made to the dev tools, including unreleased tools in preview. 
+
+[Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp/?tab=readme-ov-file#chrome-devtools-mcp) The Chrome DevTools MCP is an open source project on Github. It's changing frequently. 
+
+[Lighthouse](https://github.com/GoogleChrome/lighthouse) Github page for the Lighthouse project.
